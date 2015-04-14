@@ -52,19 +52,19 @@ $ ./Hello
 
 You're amazed; everything works as expected!
 
-You wonder what happens if you copy it to your `$PATH`.
+You wonder what happens if you copy this executable binary to your `$PATH`.
 
 ```sh
 $ cp Hello /usr/local/bin
 ```
 
-Trembling with excitement, you slowly type the command that may change your life:
+Trembling with excitement, you slowly type the command that may change your life forever:
 
 ```sh
 $ Hello
 ```
 
-Eureka! **Writing executable binaries in the language you're comfortable in is now a reality. You can finally sleep at night.**
+Eureka! **Writing executable binaries in the language you're comfortable with is now a reality. You can finally sleep at night.**
 
 You can now distribute a cleaner, leaner, and meaner binary executable for your users.
 
