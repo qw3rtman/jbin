@@ -17,14 +17,14 @@ You sit down, dust off your Java compiler, and proceed to spend the next four ye
 ```java
 public class Hello
 {
- public static String sayHello()
- {
-  return "Hello, world!";
- }
+	public static String sayHello()
+	{
+		return "Hello, world!";
+	}
 
- public static void main(String[] args) {
-  System.out.println(Hello.sayHello());
- }
+	public static void main(String[] args) {
+		System.out.println(Hello.sayHello());
+	}
 }
 ```
 
