@@ -113,3 +113,6 @@ Find something interesting in the TODO below, fork our code, create a new branch
 
 There are only two rules: avoid [code smells](http://blog.codinghorror.com/code-smells/) and abide by the syntax-formatting of the existing code.
 .com/qw3rtman>
+
+## TODO
+* everything
