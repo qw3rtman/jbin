@@ -90,7 +90,7 @@ A JAR will be created with the **first Java source file specified being defined 
 `jbin` can be installed on Unix-based machines (Linux or Mac OS X) by downloading the binary executable and copying it to your `$PATH`.
 
 ```sh
-$ wget https://github.com/qw3rtman/jbin/archive/jbin
+$ wget https://github.com/qw3rtman/jbin/releases/download/v0.1.0/jbin
 $ mv jbin /usr/local/bin
 ```
 
