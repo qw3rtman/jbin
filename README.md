@@ -119,6 +119,9 @@ There are only two rules: avoid [code smells](http://blog.codinghorror.com/code-
 ## TODO
 * everything
 
+## FAQ
+### How does this all work?
+
 ## Core Team
 **Nimit Kalra**
 * <nimit@nimitkalra.com>
