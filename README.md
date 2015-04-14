@@ -116,3 +116,10 @@ There are only two rules: avoid [code smells](http://blog.codinghorror.com/code-
 
 ## TODO
 * everything
+
+## Core Team
+**Nimit Kalra**
+* <nimit@nimitkalra.com>
+* <http://nimitkalra.com>
+* <https://github.com/qw3rtman>
+* <https://twitter.com/qw3rtman>
