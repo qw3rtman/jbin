@@ -9,6 +9,8 @@ Think of `jbin` as the replacement for a shebang in a Java program. **Instead of
 
 `jbin` adds no additional baggage or code to your project and ensures that it's as lightweight as it was before using `jbin`.
 
+This program was packaged into an executable binary using `jbin`!
+
 ## Getting Started
 After the [super painless drag-and-drop installation](#installation), suppose you want to create a life-changing program that will have a stark effect on the world called `HelloWorld`.
 
