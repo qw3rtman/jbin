@@ -80,4 +80,6 @@ $ mv jbin /usr/local/bin
 ### Windows
 There is currently limited support for `jbin` on Windows. This is due to the absence of a shebang or shebang-esque function in MS-DOS. As a result, `jbin` works just fine in [Cygwin](https://www.cygwin.com/). Simply follow the above instructions for Linux and Mac OS X in Cygwin.
 
+`jbin` (obviously) depends on Java. Other than that, `jbin` has no dependencies!
+
 Easy as cake!
