@@ -83,3 +83,10 @@ There is currently limited support for `jbin` on Windows. This is due to the abs
 `jbin` (obviously) depends on Java. Other than that, `jbin` has no dependencies!
 
 Easy as cake!
+
+## Updating
+`jbin` will check for updates on every command and will inform you in the event that `jbin` is out-of-date.
+
+Additionally, you can run `jbin -v` or `jbin --version` to check this manually.
+
+To update, simply run `jbin self-update`.
