@@ -10,12 +10,12 @@ Think of `jbin` as the replacement for a shebang in a Java program. **Instead of
 `jbin` adds no additional baggage or code to your project and ensures that it's as lightweight as it was before using `jbin`.
 
 ## Getting Started
-After the [super painless drag-and-drop installation](#installation), suppose you want to create a life-changing program that will have a stark effect on the world called `Hello`.
+After the [super painless drag-and-drop installation](#installation), suppose you want to create a life-changing program that will have a stark effect on the world called `HelloWorld`.
 
 You sit down, dust off your Java compiler, and proceed to spend the next four years of your life working twenty hours a day. Then comes the day you are finally able to show off your masterpiece.
 
 ```java
-public class Hello
+public class HelloWorld
 {
 	public static String sayHello()
 	{
@@ -23,7 +23,7 @@ public class Hello
 	}
 
 	public static void main(String[] args) {
-		System.out.println(Hello.sayHello());
+		System.out.println(HelloWorld.sayHello());
 	}
 }
 ```
@@ -33,7 +33,7 @@ You're ecstatic, all those years of hard work have finally paid off!
 You decide to package your killer new program as a `JAR`; after all, **it's the standard**. Whenever someone wants to use your insanely-useful program, they'll have to:
 
 ```sh
-$ java -jar Hello.jar
+$ java -jar HelloWorld.jar
 ```
 
 Hmm, you think. That's a bit overkill. **Shouldn't it be easier for my users to use my amazing program than that? Why is the standard so awkward?**
@@ -41,13 +41,13 @@ Hmm, you think. That's a bit overkill. **Shouldn't it be easier for my users to 
 This is where `jbin` steps into the equation. You decide to run:
 
 ```sh
-$ jbin Hello.jar Hello
+$ jbin HelloWorld.jar HelloWorld
 ```
 
-You're presented with a new file, an executable binary by the name `Hello`. You run:
+You're presented with a new file, an executable binary by the name `HelloWorld`. You run:
 
 ```sh
-$ ./Hello
+$ ./HelloWorld
 ```
 
 You're amazed; everything works as expected!
@@ -55,13 +55,13 @@ You're amazed; everything works as expected!
 You wonder what happens if you copy this executable binary to your `$PATH`.
 
 ```sh
-$ cp Hello /usr/local/bin
+$ cp HelloWorld /usr/local/bin
 ```
 
 Trembling with excitement, you slowly type the command that may change your life forever:
 
 ```sh
-$ Hello
+$ HelloWorld
 ```
 
 Eureka! **Writing executable binaries in the language you're comfortable with is now a reality. You can finally sleep at night.**
@@ -71,9 +71,9 @@ You can now distribute a cleaner, leaner, and meaner binary executable for your 
 ## Usage
 ### Generating an executable binary from an existing JAR
 ```sh
-$ jbin Hello.jar Hello
+$ jbin HelloWorld.jar HelloWorld
 ```
-Where `Hello.jar` is the existing JAR. `Hello` is the name of the executable binary that will be generated.
+Where `HelloWorld.jar` is the existing JAR. `HelloWorld` is the name of the executable binary that will be generated.
 
 ### Generating an executable binary from a bunch of Java source files (.java)
 ```sh
