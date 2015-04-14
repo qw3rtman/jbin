@@ -67,3 +67,17 @@ $ Hello
 Eureka! **Writing executable binaries in the language you're comfortable in is now a reality. You can finally sleep at night.**
 
 You can now distribute a cleaner, leaner, and meaner binary executable for your users.
+
+## Installation
+### Linux and Max OS X
+`jbin` can be installed on Unix-based machines (Linux or Mac OS X) by downloading the binary executable and copying it to your `$PATH`.
+
+```sh
+$ wget https://github.com/qw3rtman/jbin/archive/jbin
+$ mv jbin /usr/local/bin
+```
+
+### Windows
+There is currently limited support for `jbin` on Windows. This is due to the absence of a shebang or shebang-esque function in MS-DOS. As a result, `jbin` works just fine in [Cygwin](https://www.cygwin.com/). Simply follow the above instructions for Linux and Mac OS X in Cygwin.
+
+Easy as cake!
