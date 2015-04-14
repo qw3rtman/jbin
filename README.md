@@ -65,3 +65,5 @@ $ Hello
 ```
 
 Eureka! **Writing executable binaries in the language you're comfortable in is now a reality. You can finally sleep at night.**
+
+You can now distribute a cleaner, leaner, and meaner binary executable for your users.
