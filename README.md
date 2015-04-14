@@ -68,6 +68,21 @@ Eureka! **Writing executable binaries in the language you're comfortable with is
 
 You can now distribute a cleaner, leaner, and meaner binary executable for your users.
 
+## Usage
+### Generating an executable binary from an existing JAR
+```sh
+$ jbin Hello.jar Hello
+```
+Where `Hello.jar` is the existing JAR. `Hello` is the name of the executable binary that will be generated.
+
+### Generating an executable binary from a bunch of Java source files (.java)
+```sh
+$ jbin Sudoku.java Board.java Cell.java Sudoku
+```
+Where `Sudoku.java`, `Board.java`, and `Cell.java` are the Java source files. `Sudoku` is the name of the executable binary that will be generated.
+
+A JAR will be created with the **first Java source file specified being defined as the `Main-Class` in the `META-INF/MANIFEST.MF`**. This is the file that will be "run" when the executable binary is executed.
+
 ## Installation
 ### Linux and Max OS X
 `jbin` can be installed on Unix-based machines (Linux or Mac OS X) by downloading the binary executable and copying it to your `$PATH`.
