@@ -14,21 +14,25 @@ public class jbin
 			Process pTouch = Runtime.getRuntime().exec(new String[]{"touch", binary});
 			pTouch.waitFor();
 
-			// Add the shebang...
+			// Creates executable binary.
 			try {
 				byte[] buffer = new byte[(int) (new File(jar)).length()];
 
-				FileInputStream inputStream = new FileInputStream(jar);
+				FileInputStream shebangInputStream = new FileInputStream("shebang.txt");
+				FileInputStream jarInputStream = new FileInputStream(jar);
 
-				int read = 0;
-				while((read = inputStream.read(buffer)) != -1) {
+				int shebangRead = 0;
+				int jarRead = 0;
+
+				while((jarRead = jarInputStream.read(buffer)) != -1 && (shebangRead = shebangInputStream.read(buffer)) != -1) {
 					FileOutputStream outputStream = new FileOutputStream(binary);
+
           outputStream.write(buffer);
           outputStream.close();
 				}
 
-				// Always close files.
-				inputStream.close();
+				shebangInputStream.close();
+				jarInputStream.close();
 			} catch (FileNotFoundException e) {
 				System.out.println("Unable to open file '" + jar + "'.");
 			} catch (IOException e) {
