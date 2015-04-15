@@ -40,8 +40,14 @@ public class jbin
 			}
 
 			// Allow execution.
-			Process pExecute = Runtime.getRuntime().exec(new String[]{"chmod", "+x", binary});
-			pExecute.waitFor();
+			try {
+				File binaryFile = new File(binary);
+
+				binaryFile.setExecutable(true);
+			} catch (SecurityException e) { // If permissions are not sufficient.
+				System.out.println("Unable to set '" + binary + "' to executable.");
+				System.out.println("Do this manually with: chmod +x " + binary);
+			}
 		} catch (InterruptedException e) {
 			System.out.println(e.getMessage());
 		}
