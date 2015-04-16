@@ -88,6 +88,14 @@ public class jbin
 		} catch (InterruptedException e) {
 			System.out.println("Could not compile Java source.");
 		}
+
+		// Create JAR...
+		try {
+			Process createJAR = Runtime.getRuntime().exec("jar cmvf META-INF/MANIFEST.JAR " + jar + main.substring(0, main.length() - 5) + ".class");
+			createJAR.waitFor();
+		} catch (InterruptedException e) {
+			System.out.println("Could not create JAR.");
+		}
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
