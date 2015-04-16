@@ -91,7 +91,7 @@ public class jbin
 
 		// Create JAR...
 		try {
-			Process createJAR = Runtime.getRuntime().exec("jar cmvf META-INF/MANIFEST.MF " + jar + main.substring(0, main.length() - 5) + ".class");
+			Process createJAR = Runtime.getRuntime().exec("jar cmvf META-INF/MANIFEST.MF " + jar + " " + main.substring(0, main.length() - 5) + ".class");
 			createJAR.waitFor();
 		} catch (InterruptedException e) {
 			System.out.println("Could not create JAR.");
