@@ -7,8 +7,15 @@ public class jbin
 	{
 		try {
 			// Deletes file if exists.
-			Process pClear = Runtime.getRuntime().exec(new String[]{"rm", "-rf", binary});
-			pClear.waitFor();
+			try {
+				File binaryFile = new File(binary);
+
+				binaryFile.delete();
+			} catch (FileNotFoundException e) {
+
+			} catch (IOException e) {
+				System.out.println("Error reading file '" + binary + "'.");
+			}
 
 			// Creates blank file.
 			Process pTouch = Runtime.getRuntime().exec(new String[]{"touch", binary});
@@ -53,7 +60,7 @@ public class jbin
 		}
 	}
 
-	public static void sourceToJAR()
+	public static void sourceToJAR(String main, )
 	{
 
 	}
