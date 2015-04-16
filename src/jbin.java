@@ -55,9 +55,33 @@ public class jbin
 		}
 	}
 
-	public static void sourceToJAR(String main)
+	public static void sourceToJAR(String main, String[] additional, String binary) throws IOException, InterruptedException
 	{
+		// Create JAR...
 
+		// Create META-INF/MANIFEST.MF if it doesn't exist.
+		try {
+			File manifest = new File("META-INF/MANIFEST.MF");
+
+			if (!manifest.exists()) { // If it doesn't exist...
+				manifest.createNewFile(); // ...create it.
+
+				OutputStream manifestOutput = new FileOutputStream(manifest);
+				String manifestContent = "Main-Class: " + main.substring(-1, 4);
+
+				manifestOutput.write(manifestContent.getBytes());
+				manifestOutput.flush();
+				manifestOutput.close();
+			}
+		} catch (IOException e) {
+			System.out.println("Could not create manifest file for JAR.");
+		}
+
+		try {
+			Process createJAR = Runtime.getRuntime().exec();
+		} catch (InterruptedException e) {
+
+		}
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
