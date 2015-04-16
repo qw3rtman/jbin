@@ -63,11 +63,14 @@ public class jbin
 		try {
 			File manifest = new File("META-INF/MANIFEST.MF");
 
+			// Ensure META-INF directory exists.
+			manifest.getParentFile().mkdirs();
+
 			if (!manifest.exists()) { // If it doesn't exist...
 				manifest.createNewFile(); // ...create it.
 
 				OutputStream manifestOutput = new FileOutputStream(manifest);
-				String manifestContent = "Main-Class: " + main.substring(-1, 4);
+				String manifestContent = "Main-Class: " + main.substring(0, main.length() - 5);
 
 				manifestOutput.write(manifestContent.getBytes());
 				manifestOutput.flush();
@@ -75,18 +78,11 @@ public class jbin
 			}
 		} catch (IOException e) {
 			System.out.println("Could not create manifest file for JAR.");
-		}
-
-		try {
-			Process createJAR = Runtime.getRuntime().exec();
-		} catch (InterruptedException e) {
-
+			System.out.println(e.getMessage());
 		}
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		if (args.length == 2) {
-			jbin.jarToBinary(args[0], args[1]);
-		}
+		jbin.sourceToJAR(args[0], new String[0], args[1]);
 	}
 }
