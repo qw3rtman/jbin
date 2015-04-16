@@ -117,5 +117,6 @@ public class jbin
 		}
 
 		jbin.sourceToJAR(args[0], additional, args[1 + additionalCount]);
+		jbin.jarToBinary(args[1 + additionalCount], args[2 + additionalCount]);
 	}
 }
