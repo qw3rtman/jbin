@@ -109,7 +109,7 @@ public class jbin
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		int additionalCount = args.length - 2;
+		int additionalCount = args.length - 3;
 		String[] additional = new String[additionalCount];
 
 		for (int i = 1; i < additionalCount + 1; i++) {
