@@ -93,10 +93,10 @@ public class jbin
 		}
 
 		try {
-			Process compileSource = Runtime.getRuntime().exec("javac " + main + " " + additionalSources); // TODO: compile additional files.
+			Process compileSource = Runtime.getRuntime().exec("javac " + main + " " + additionalSources);
 			compileSource.waitFor();
 		} catch (InterruptedException e) {
-			System.out.println("Could not compile Java source. Check for compile errors.");
+			System.out.println("Could not compile Java source. Check for compilation errors.");
 		}
 
 		// Create JAR...
