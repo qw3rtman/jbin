@@ -100,5 +100,6 @@ public class jbin
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		jbin.sourceToJAR(args[0], new String[0], args[1]);
+		jbin.jarToBinary(args[1], args[2]);
 	}
 }
