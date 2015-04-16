@@ -6,20 +6,19 @@ public class jbin
 	public static void jarToBinary(String jar, String binary) throws IOException, InterruptedException
 	{
 		try {
-			// Deletes file if exists.
 			try {
 				File binaryFile = new File(binary);
 
+				// Deletes file if exists.
 				binaryFile.delete();
+
+				// Creates blank file.
+				binaryFile.createNewFile();
 			} catch (FileNotFoundException e) {
 
 			} catch (IOException e) {
 				System.out.println("Error reading file '" + binary + "'.");
 			}
-
-			// Creates blank file.
-			Process pTouch = Runtime.getRuntime().exec(new String[]{"touch", binary});
-			pTouch.waitFor();
 
 			// Creates executable binary.
 			try {
