@@ -70,7 +70,7 @@ public class jbin
 				manifest.createNewFile(); // ...create it.
 
 				OutputStream manifestOutput = new FileOutputStream(manifest);
-				String manifestContent = "Main-Class: " + main.substring(0, main.length() - 5);
+				String manifestContent = "Main-Class: " + main.substring(0, main.length() - 5) + "\n";
 
 				manifestOutput.write(manifestContent.getBytes());
 				manifestOutput.flush();
@@ -91,7 +91,7 @@ public class jbin
 
 		// Create JAR...
 		try {
-			Process createJAR = Runtime.getRuntime().exec("jar cmvf META-INF/MANIFEST.JAR " + jar + main.substring(0, main.length() - 5) + ".class");
+			Process createJAR = Runtime.getRuntime().exec("jar cmvf META-INF/MANIFEST.MF " + jar + main.substring(0, main.length() - 5) + ".class");
 			createJAR.waitFor();
 		} catch (InterruptedException e) {
 			System.out.println("Could not create JAR.");
