@@ -59,7 +59,7 @@ public class jbin
 		}
 	}
 
-	public static void sourceToJAR(String main, )
+	public static void sourceToJAR(String main)
 	{
 
 	}
