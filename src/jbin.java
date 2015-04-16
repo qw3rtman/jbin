@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class jbin
 {
-	public static void jarToBinary(String jar, String binary) throws IOException, InterruptedException
+	public static void jarToBinary(String jar, String binary) throws IOException
 	{
 		try {
 			File binaryFile = new File(binary);
