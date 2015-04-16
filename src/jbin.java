@@ -116,7 +116,6 @@ public class jbin
 			additional[i - 1] = args[i];
 		}
 
-		jbin.sourceToJAR(args[0], additional, args[2]);
-		jbin.jarToBinary(args[1], args[2]);
+		jbin.sourceToJAR(args[0], additional, args[1 + additionalCount]);
 	}
 }
