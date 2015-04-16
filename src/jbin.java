@@ -55,7 +55,7 @@ public class jbin
 		}
 	}
 
-	public static void sourceToJAR(String main, String[] additional, String binary) throws IOException, InterruptedException
+	public static void sourceToJAR(String main, String[] additional, String jar) throws IOException, InterruptedException
 	{
 		// Create JAR...
 
@@ -79,6 +79,14 @@ public class jbin
 		} catch (IOException e) {
 			System.out.println("Could not create manifest file for JAR.");
 			System.out.println(e.getMessage());
+		}
+
+		// Compile everything.
+		try {
+			Process compileSource = Runtime.getRuntime().exec("javac " + main); // TODO: compile additional files.
+			compileSource.waitFor();
+		} catch (InterruptedException e) {
+			System.out.println("Could not compile Java source.");
 		}
 	}
 
