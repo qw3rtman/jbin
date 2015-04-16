@@ -82,16 +82,26 @@ public class jbin
 		}
 
 		// Compile everything.
+		String additionalSources = "";
+		for (int i = 0; i < additional.length; i++) {
+			additionalSources += additional[i];
+
+			// Prevent trailing space on last additionalSource.
+			if (i != additional.length - 1) {
+				additionalSources += " ";
+			}
+		}
+
 		try {
-			Process compileSource = Runtime.getRuntime().exec("javac " + main); // TODO: compile additional files.
+			Process compileSource = Runtime.getRuntime().exec("javac " + main + " " + additionalSources); // TODO: compile additional files.
 			compileSource.waitFor();
 		} catch (InterruptedException e) {
-			System.out.println("Could not compile Java source.");
+			System.out.println("Could not compile Java source. Check for compile errors.");
 		}
 
 		// Create JAR...
 		try {
-			Process createJAR = Runtime.getRuntime().exec("jar cmvf META-INF/MANIFEST.MF " + jar + " " + main.substring(0, main.length() - 5) + ".class");
+			Process createJAR = Runtime.getRuntime().exec("jar cmvf META-INF/MANIFEST.MF " + jar + " " + main.substring(0, main.length() - 5) + ".class " + additionalSources.replaceAll(".java", ".class"));
 			createJAR.waitFor();
 		} catch (InterruptedException e) {
 			System.out.println("Could not create JAR.");
@@ -99,7 +109,14 @@ public class jbin
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		jbin.sourceToJAR(args[0], new String[0], args[1]);
+		int additionalCount = args.length - 2;
+		String[] additional = new String[additionalCount];
+
+		for (int i = 1; i < additionalCount + 1; i++) {
+			additional[i - 1] = args[i];
+		}
+
+		jbin.sourceToJAR(args[0], additional, args[2]);
 		jbin.jarToBinary(args[1], args[2]);
 	}
 }
