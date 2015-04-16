@@ -59,6 +59,8 @@ public class jbin
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		jbin.jarToBinary("HelloWorld.jar", "HelloWorld");
+		if (args.length == 2) {
+			jbin.jarToBinary(args[0], args[1]);
+		}
 	}
 }
