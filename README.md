@@ -117,7 +117,7 @@ There are only two rules: avoid [code smells](http://blog.codinghorror.com/code-
 .com/qw3rtman>
 
 ## TODO
-* everything
+* CLI argument parser
 
 ## FAQ
 ### How does this all work?
