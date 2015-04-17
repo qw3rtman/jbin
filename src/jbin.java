@@ -160,7 +160,7 @@ public class jbin
 			}
 
 			// bin
-			bin = (String) jsonObject.get("bi");
+			bin = (String) jsonObject.get("bin");
 			if (bin == null) {
 				bin = main.substring(0, main.length() - 5);
 			}
