@@ -1,5 +1,13 @@
 import java.io.*;
 import java.util.Scanner;
+import java.util.Arrays;
+
+import java.util.Iterator;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class jbin
 {
@@ -109,14 +117,67 @@ public class jbin
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		int additionalCount = args.length - 3;
-		String[] additional = new String[additionalCount];
+		JSONParser parser = new JSONParser();
 
-		for (int i = 1; i < additionalCount + 1; i++) {
-			additional[i - 1] = args[i];
+		String main = "";
+		String[] additional = {};
+		String jar = "";
+		String bin = "";
+
+		try {
+			Object obj = parser.parse(new FileReader("../package.json"));
+			JSONObject jsonObject = (JSONObject) obj;
+
+			// main
+			main = (String) jsonObject.get("main");
+			if (main == null) {
+				if (args.length > 0) {
+					main = args[0];
+				} else {
+					System.out.println("Not enough information in package.json. :(");
+
+					return;
+				}
+			}
+
+			// additional
+			JSONArray additionalJSONArray = (JSONArray) jsonObject.get("additional");
+			if (additionalJSONArray != null) {
+				additional = new String[additionalJSONArray.size()];
+				Iterator<String> additionalJSONArrayIterator = additionalJSONArray.iterator();
+				int additionalJSONArrayIndex = 0;
+				while (additionalJSONArrayIterator.hasNext()) {
+					additional[additionalJSONArrayIndex] = additionalJSONArrayIterator.next();
+
+					additionalJSONArrayIndex++;
+				}
+			}
+
+			// jar
+			jar = (String) jsonObject.get("jar");
+			if (jar == null) {
+				jar = main.substring(0, main.length() - 5) + ".jar";
+			}
+
+			// bin
+			bin = (String) jsonObject.get("bi");
+			if (bin == null) {
+				bin = main.substring(0, main.length() - 5);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
 
-		jbin.sourceToJAR(args[0], additional, args[1 + additionalCount]);
-		jbin.jarToBinary(args[1 + additionalCount], args[2 + additionalCount]);
+		System.out.println(main);
+		System.out.println(Arrays.toString(additional));
+		System.out.println(jar);
+		System.out.println(bin);
+
+		jbin.sourceToJAR(main, additional, jar);
+		jbin.jarToBinary(jar, bin);
 	}
 }
