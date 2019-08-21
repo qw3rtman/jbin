@@ -123,8 +123,8 @@ There are only two rules: avoid [code smells](http://blog.codinghorror.com/code-
 ### How does this all work?
 
 ## Core Team
-**Nimit Kalra**
-* <nimit@nimitkalra.com>
-* <http://nimitkalra.com>
+### Nimit Kalra
+* <me@nimit.io> / <nimit@utexas.edu>
+* <http://nimit.io>
 * <https://github.com/qw3rtman>
-* <https://twitter.com/qw3rtman>
+* <https://twitter.com/nimkalra>
